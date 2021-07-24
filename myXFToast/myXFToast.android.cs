@@ -11,29 +11,26 @@ namespace Plugin.myXFToast
     /// </summary>
     public class myXFToastImplementation : ImyXFToast
     {
-        private static Android.Widget.Toast toastInstance;
-
-        public void Show(string message, bool IsLong = false, string ColorRgb = null)
+        private static Toast toastInstance;
+        public void Show(string message, bool isLong = false, string bgColorRgb = "#000000")
         {
             //Toast.MakeText(Android.App.Application.Context, message, IsLong? ToastLength.Long: ToastLength.Short).Show();
 
             if (toastInstance != null)
                 toastInstance.Cancel();
 
-            toastInstance = Android.Widget.Toast.MakeText(Android.App.Application.Context, message,
-                IsLong ? ToastLength.Long : ToastLength.Short);
-            if (ColorRgb != null && ColorRgb != Color.White.ToString())
+            toastInstance = Toast.MakeText(Android.App.Application.Context, message, isLong ? ToastLength.Long : ToastLength.Short);
+            if (toastInstance != null)
             {
                 View tView = toastInstance.View;
-                tView.SetBackgroundColor(Color.ParseColor(ColorRgb));
+                tView.SetBackgroundColor(Color.ParseColor(bgColorRgb));
 
                 TextView text = (TextView)tView.FindViewById(Android.Resource.Id.Message);
                 text.SetShadowLayer(0, 0, 0, Color.Transparent);
                 text.SetTextColor(Color.White);
+
+                toastInstance.Show();
             }
-
-
-            toastInstance.Show();
         }
     }
 }
