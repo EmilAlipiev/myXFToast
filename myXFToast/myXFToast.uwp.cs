@@ -18,9 +18,9 @@ namespace Plugin.myXFToast
             ShowMessage(message, IsLong ? LONG_DELAY : SHORT_DELAY, ColorRgb);
         }
 
-        private void ShowMessage(string message, double duration, string ColorRgb = null)
+        private void ShowMessage(string message, double duration, string bgColorHex = "#000000")
         {
-            var label = new Windows.UI.Xaml.Controls.TextBlock
+            var label = new TextBlock
             {
                 Text = message,
                 Foreground = new SolidColorBrush(Windows.UI.Colors.White),
@@ -29,9 +29,9 @@ namespace Plugin.myXFToast
             };
 
             Windows.UI.Color color = Windows.UI.Colors.Black;
-            if (ColorRgb != null)
+            if (bgColorHex != null)
             {
-                color = ConvertColorFromHexString(ColorRgb);
+                color = ConvertColorFromHexString(bgColorHex);
             }
 
             var style = new Style { TargetType = typeof(FlyoutPresenter) };

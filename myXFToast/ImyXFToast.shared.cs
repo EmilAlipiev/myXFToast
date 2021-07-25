@@ -9,6 +9,6 @@ namespace Plugin.myXFToast
     [Preserve(AllMembers = true)]
     public interface ImyXFToast
     {
-        void Show(string message, bool IsLong = false, string BacgroundColorRgb = null);
+        void Show(string message, bool IsLong = false, string BacgroundColorRgb = "#000000");
     }
 }
