@@ -13,9 +13,9 @@ namespace Plugin.myXFToast
         private const double LONG_DELAY = 3.5;
         private const double SHORT_DELAY = 2.0;
 
-        public void Show(string message, bool IsLong = false, string ColorRgb = null)
+        public void Show(string message, bool IsLong = false, string bgColorHex = null)
         {
-            ShowMessage(message, IsLong ? LONG_DELAY : SHORT_DELAY, ColorRgb);
+            ShowMessage(message, IsLong ? LONG_DELAY : SHORT_DELAY, bgColorHex);
         }
 
         private void ShowMessage(string message, double duration, string bgColorHex = "#000000")

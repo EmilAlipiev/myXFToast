@@ -45,7 +45,7 @@ namespace Plugin.myXFToast
             }
         }
 
-        public void Show(string message, bool IsLong = false, string bgColorRgb = "#000000")
+        public void Show(string message, bool IsLong = false, string bgColorHex = "#000000")
         {
             ShowAlert(message, IsLong ? LONG_DELAY : SHORT_DELAY);
         }
