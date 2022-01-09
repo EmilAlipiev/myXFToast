@@ -13,7 +13,7 @@ namespace Plugin.myXFToast
 
         void ShowAlert(string message, double seconds)
         {
-            var alert = UIAlertController.Create(null, message, UIAlertControllerStyle.ActionSheet);
+            var alert = UIAlertController.Create(null, message, UIDevice.CurrentDevice.UserInterfaceIdiom == UIUserInterfaceIdiom.Pad ? UIAlertControllerStyle.Alert : UIAlertControllerStyle.ActionSheet);
 
             var alertDelay = NSTimer.CreateScheduledTimer(seconds, obj =>
             {
